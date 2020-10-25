@@ -55,7 +55,10 @@ ROOT_URLCONF = 'ijamboProj.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+                os.path.join(BASE_DIR, os.path.join('ijambo', 'templates')),
+                os.path.join(BASE_DIR, os.path.join('ijamboAdmin', 'templates')),
+            ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -100,6 +103,17 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+try:
+    from django.contrib.messages import constants as messages
+    MESSAGE_TAGS = {
+        messages.DEBUG: 'alert-info',
+        messages.INFO: 'alert-info',
+        messages.SUCCESS: 'alert-success',
+        messages.WARNING: 'alert-warning',
+        messages.ERROR: 'alert-danger',
+    }
+except Exception as e:
+    pass
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
