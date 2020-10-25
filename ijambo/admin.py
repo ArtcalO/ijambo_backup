@@ -8,3 +8,11 @@ class ProfilAdmin(admin.ModelAdmin):
     search_fields = ('user', 'avatar')
 
 admin.site.register(Profil, ProfilAdmin)
+admin.site.register(Album)
+admin.site.register(Music)
+admin.site.register(MonthSong)
+admin.site.register(Contact)
+admin.site.register(Event)
+
+
+

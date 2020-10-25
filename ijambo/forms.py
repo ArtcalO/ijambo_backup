@@ -39,3 +39,15 @@ class RegisterForm(forms.Form):
     	attrs={'class':'form-control'}),
     	label='your profile picture')
  
+
+class LoginForm(forms.Form):
+    username = forms.CharField(widget=forms.TextInput(
+        attrs={
+            'placeholder':'Username',
+            'class':'form-control'}),
+        label='Username(A.K.A)')
+    password = forms.CharField(widget=forms.PasswordInput(
+        attrs={
+            'placeholder':'password ',
+            'type':'password',
+            'class':'form-control'}))
