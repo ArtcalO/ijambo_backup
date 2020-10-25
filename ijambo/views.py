@@ -1,8 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views import View
 from . forms import *
-# Create your views here.
+from django.contrib import messages
 
 class HomeView(View):
 	template_name = 'index.html'
@@ -12,7 +12,7 @@ class HomeView(View):
 
 def register(request):
 	if request.method == "POST" :
-		register_form = Registerregister_form(request.POST, request.FILES)
+		register_form = RegisterForm(request.POST or None, request.FILES)
 		if register_form.is_valid():
 			username = register_form.cleaned_data['username']
 			first_name = register_form.cleaned_data['first_name']
@@ -22,15 +22,42 @@ def register(request):
 			email = register_form.cleaned_data['email']
 			avatar = register_form.cleaned_data['avatar']
 			if password==password2:
-				user = User.objects.create_user(
-					username=username,
-					first_name=first_name,
-					last_name=last_name,
-					email=email, 
-					password=password)
-				Profil(user=user, avatar=avatar).save()
-		if user:
-			login(request, user)
-			return redirect(Home)
+				try:
+					user = User.objects.create_user(
+						username=username,
+						first_name=first_name,
+						last_name=last_name,
+						email=email, 
+						password=password)
+					Profil(user=user, avatar=avatar).save()
+					if user:
+						login(request, user)
+						return redirect('home')
+				except Exception as e:
+					messages.error(request, "Username Already Taken")
 	register_form = RegisterForm()
 	return render(request, 'register.html', locals())
+
+
+def connexion(request):
+	login_form = LoginForm(request.POST)
+	try:
+		next_p = request.GET["next"]
+	except:
+		next_p = ""
+	if request.method == "POST" and login_form.is_valid():
+		username = login_form.cleaned_data['username']
+		password = login_form.cleaned_data['password']
+		user = authenticate(reauest,username=username, password=password)
+		if user:  # Si l'objet renvoyé n'est pas None
+			login(request, user)
+			if next_p:
+				return redirect(next_p)
+			else:
+				return redirect('home')
+	login_form = LoginForm()
+	return render(request, 'login.html', locals())
+
+def deconexion(request):
+	logout(request)
+	return redirect('home')
