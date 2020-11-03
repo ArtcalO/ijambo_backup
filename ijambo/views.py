@@ -48,7 +48,7 @@ def connexion(request):
 	if request.method == "POST" and login_form.is_valid():
 		username = login_form.cleaned_data['username']
 		password = login_form.cleaned_data['password']
-		user = authenticate(reauest,username=username, password=password)
+		user = authenticate(username=username, password=password)
 		if user:  # Si l'objet renvoyé n'est pas None
 			login(request, user)
 			if next_p:
