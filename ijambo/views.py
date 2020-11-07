@@ -45,17 +45,20 @@ def connexion(request):
 		next_p = request.GET["next"]
 	except:
 		next_p = ""
-	if request.method == "POST" and login_form.is_valid():
-		username = login_form.cleaned_data['username']
-		password = login_form.cleaned_data['password']
-		user = authenticate(username=username, password=password)
-		if user:  # Si l'objet renvoyé n'est pas None
-			login(request, user)
-			if next_p:
-				return redirect(next_p)
-			else:
-				return redirect('home')
-	login_form = LoginForm()
+	if request.method == "POST":
+		if login_form.is_valid():
+			username = login_form.cleaned_data['username']
+			password = login_form.cleaned_data['password']
+			user = authenticate(username=username, password=password)
+			if user:  # Si l'objet renvoyé n'est pas None
+				login(request, user)
+				if next_p:
+					return redirect(next_p)
+				else:
+					return redirect('home')
+		else : 
+			error_message='Username Or PassWord Incorect !'
+		login_form = LoginForm()
 	return render(request, 'login.html', locals())
 
 def deconexion(request):
