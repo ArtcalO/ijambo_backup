@@ -64,3 +64,19 @@ def connexion(request):
 def deconexion(request):
 	logout(request)
 	return redirect('home')
+
+def albums(request):
+	return render(request, 'albums.html', locals())
+
+def albumDetails(request):
+	return render (request, 'album-details.html', locals())
+
+def events(request):
+	return render(request, 'events.html', locals())
+
+def eventDetails(request):
+	return render(request, 'event-details.html', locals())
+
+
+def contact(request):
+	return render(request, 'contact.html', locals())
