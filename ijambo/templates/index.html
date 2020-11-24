@@ -65,7 +65,7 @@
                             <div class="classynav">
                                 <ul>
                                     <li><a href="index.html">Accueil</a></li>
-                                    <li><a href="albums-store.html">Albums</a></li>
+                                    <li><a href="{% url 'albums' %}">Albums</a></li>
                                     <li><a href="#">Musiques</a>
                                         <ul class="dropdown">
                                             <li><a href="index.html">R-B</a></li>
@@ -93,9 +93,8 @@
                                             </li>
                                         </ul>
                                     </li>
-                                    <li><a href="event.html">Evénements</a></li>
-                                    <li><a href="blog.html">Nouveautés</a></li>
-                                    <li><a href="contact.html">Contacts</a></li>
+                                    <li><a href=" {% url 'events' %} ">Evénements</a></li>
+                                    <li><a href="{% url 'contact' %}">Contacts</a></li>
                                     
                                 </ul>
 
