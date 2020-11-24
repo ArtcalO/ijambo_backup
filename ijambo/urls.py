@@ -5,4 +5,9 @@ urlpatterns = [
     path('register/', views.register, name='register'),
     path('login/', views.connexion, name='login'),
     path('logout/', views.deconexion, name='logout'),
+    path('albums/', views.albums, name='albums'),
+    path('album-details/', views.albumDetails, name='albumdetail'),
+    path('events/', views.events, name='events'),
+    path('event-details/', views.eventDetails, name='eventdetail'),
+    path('contact/', views.contact, name='contact'),
 ]
