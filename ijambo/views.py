@@ -80,3 +80,9 @@ def eventDetails(request):
 
 def contact(request):
 	return render(request, 'contact.html', locals())
+
+def musics(request):
+	return render(request, 'musics.html', locals())
+
+def musicsCategories(request):
+	return render(request, 'musics-categories.html', locals())
