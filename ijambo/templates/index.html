@@ -64,37 +64,20 @@
                             <!-- Nav Start -->
                             <div class="classynav">
                                 <ul>
-                                    <li><a href="index.html">Accueil</a></li>
-                                    <li><a href="{% url 'albums' %}">Albums</a></li>
-                                    <li><a href="#">Musiques</a>
+                                    <li><a href="index.html">Intango</a></li>
+                                    <li><a href="{% url 'albums' %}">Albumu</a></li>
+                                    <li><a href="{% url 'musicscategories' %}">Imiziki</a>
                                         <ul class="dropdown">
-                                            <li><a href="index.html">R-B</a></li>
-                                            <li><a href="albums-store.html">Rap</a></li>
-                                            <li><a href="event.html">HipHop</a></li>
-                                            <li><a href="blog.html">Country</a></li>
-                                            <li><a href="contact.html">Akaranga</a></li>
-                                            <li><a href="elements.html">Gospel</a></li>
-                                            <li><a href="#">Dropdown</a>
-                                                <ul class="dropdown">
-                                                    <li><a href="#">Even Dropdown</a></li>
-                                                    <li><a href="#">Even Dropdown</a></li>
-                                                    <li><a href="#">Even Dropdown</a></li>
-                                                    <li><a href="#">Even Dropdown</a>
-                                                        <ul class="dropdown">
-                                                            <li><a href="#">Deeply Dropdown</a></li>
-                                                            <li><a href="#">Deeply Dropdown</a></li>
-                                                            <li><a href="#">Deeply Dropdown</a></li>
-                                                            <li><a href="#">Deeply Dropdown</a></li>
-                                                            <li><a href="#">Deeply Dropdown</a></li>
-                                                        </ul>
-                                                    </li>
-                                                    <li><a href="#">Even Dropdown</a></li>
-                                                </ul>
-                                            </li>
+                                            <li><a href=" {% url 'musics' %} ">R-B</a></li>
+                                            <li><a href=" {% url 'musics' %} ">Rap</a></li>
+                                            <li><a href=" {% url 'musics' %} ">HipHop</a></li>
+                                            <li><a href=" {% url 'musics' %} ">Country</a></li>
+                                            <li><a href=" {% url 'musics' %} ">Akaranga</a></li>
+                                            <li><a href=" {% url 'musics' %} ">Gospel</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href=" {% url 'events' %} ">Evénements</a></li>
-                                    <li><a href="{% url 'contact' %}">Contacts</a></li>
+                                    <li><a href=" {% url 'events' %} ">Ibiteramo</a></li>
+                                    <li><a href="{% url 'contact' %}">Ibituranga</a></li>
                                     
                                 </ul>
 
@@ -103,10 +86,10 @@
                                     <!-- Login/Register -->
                                     <div class="login-register-btn mr-50">
                                         {% if user.is_authenticated %}
-                                        <a href="{% url 'logout' %}" id="loginBtn">Logout</a>
+                                        <a href="{% url 'logout' %}" id="loginBtn">Gusohoka</a>
                                         {% else %}
-                                        <a href="{% url 'register' %}" id="loginBtn">Register / </a>
-                                        <a href="{% url 'login' %}" id="loginBtn">Login</a>
+                                        <a href="{% url 'register' %}" id="loginBtn">Kwiyandikisha / </a>
+                                        <a href="{% url 'login' %}" id="loginBtn">Kwinjira</a>
                                         {% endif %}
                                     </div>
 
