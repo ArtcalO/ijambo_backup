@@ -86,3 +86,7 @@ def musics(request):
 
 def musicsCategories(request):
 	return render(request, 'musics-categories.html', locals())
+
+def musicDetails(request):
+	return render(request, 'music-details.html', locals())
+	
